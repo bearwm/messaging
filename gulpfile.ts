@@ -87,14 +87,6 @@ export class Gulpfile {
   }
 
   /**
-   * Compiles the code and runs tests.
-   */
-  @SequenceTask()
-  test() {
-    return ['compile', 'unit'];
-  }
-
-  /**
    * Runs the tslint.
    */
   @Task()
@@ -107,5 +99,13 @@ export class Gulpfile {
         sort: true,
         bell: true,
       }));
+  }
+
+  /**
+   * Compiles the code and runs tests.
+   */
+  @SequenceTask()
+  test() {
+    return ['clean', 'compile', 'tslint', 'unit'];
   }
 }

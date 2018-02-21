@@ -7,6 +7,6 @@ cache:
     - "node_modules"
 install:
     - "npm install"
-    - "gulp clean"
     - "gulp test"
 script: "npm run coverage-ci"
+after_script: "npm install coveralls@3.0.0 && cat ./coverage/lcov.info | coveralls"

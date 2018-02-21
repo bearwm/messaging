@@ -5,8 +5,7 @@
   "scripts": {
     "test": "gulp test",
     "coverage": "istanbul cover node_modules/mocha/bin/_mocha ./dist/compiled/spec/**/*.js --recursive --report html",
-    "coverage-ci": "istanbul cover node_modules/mocha/bin/_mocha ./dist/compiled/spec/**/*.js --recursive --report lcovonly",
-    "lint": "gulp tslint"
+    "coverage-ci": "istanbul cover node_modules/mocha/bin/_mocha ./dist/compiled/spec/**/*.js --recursive --report lcovonly"
   },
   "keywords": [
     "messaging",
@@ -43,7 +42,6 @@
     "chai-spies": "^1.0.0",
     "del": "^3.0.0",
     "gulp": "^3.9.1",
-    "gulp-istanbul": "^1.1.3",
     "gulp-mocha": "^5.0.0",
     "gulp-shell": "^0.6.5",
     "gulp-sourcemaps": "^2.6.4",
