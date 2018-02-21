@@ -16,7 +16,7 @@ export class Gulpfile {
    */
   @Task()
   clean(cb: Function) {
-    return del(['./dist/**'], cb);
+    return del(['./dist/**', './coverage/**'], cb);
   }
 
   /**
@@ -81,7 +81,7 @@ export class Gulpfile {
    */
   @Task()
   unit() {
-    return gulp.src('./dist/compiled/spec/**/*.js')
+    return gulp.src('./dist/compiled/test/**/*.js')
       .pipe(mocha());
   }
 
@@ -90,7 +90,7 @@ export class Gulpfile {
    */
   @Task()
   tslint() {
-    return gulp.src(['./lib/**/*.ts', './spec/**/*.ts'])
+    return gulp.src(['./lib/**/*.ts', './test/**/*.ts', './examples/**/*.ts'])
       .pipe(tslint({ formatter: 'stylish' }))
       .pipe(tslint.report({
         emitError: true,
