@@ -1,6 +1,8 @@
 {
     "compilerOptions": {
-        "lib": ["es6"],
+        "lib": [
+            "es6"
+        ],
         "module": "commonjs",
         "target": "es5",
         "moduleResolution": "node",
@@ -8,12 +10,14 @@
         "experimentalDecorators": true,
         "sourceMap": true,
         "rootDir": ".",
-        "outDir": "dist/compiled",
-        "types" : ["node"],
+        "outDir": "build/compiled",
+        "types": [
+            "node"
+        ],
         "declaration": true
     },
     "exclude": [
-        "dist",
+        "build",
         "node_modules"
     ]
 }

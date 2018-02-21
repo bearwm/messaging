@@ -2,8 +2,11 @@
 ========
 A powerful framework for asynchronous messaging.
 
+
+[![npm](https://img.shields.io/npm/v/@labs42/messaging.svg)](https://www.npmjs.com/package/@labs42/messaging)
 [![Build Status](https://travis-ci.org/labs42io/messaging.svg?branch=master)](https://travis-ci.org/labs42io/messaging)
 [![Coverage Status](https://coveralls.io/repos/github/labs42io/messaging/badge.svg)](https://coveralls.io/github/labs42io/messaging)
+[![npm](https://img.shields.io/npm/l/@labs42/messaging.svg)](https://github.com/labs42io/messaging)
 
 ```javascript
 // HelloMessage.ts
@@ -50,13 +53,13 @@ sender.submit(msg).then(result => console.log(result));
 * Decouple large systems into small, reusable code blocks
 * Configuration using decorators
 * Configuration using fluent api
-* Support for custom cummunication protocols
+* Support for custom communication protocols
 * Support for custom decorators and interception
 
 ## Core concepts
 `@labs42/messaging` is a simple framework that helps build systems composed of small, independent, reusable and testable code blocks.  
 Imagine that any code that is executed by the application is a response to some request. Be that request an event, or a command to change something, or a request to query some data, or a transaction, etc. they all cary only information about how to react to a specific request. We call this kind of requests `Message`.  
-A `Message` is used only to transport information about how they should be handled. Messagess don't have behavior.
+A `Message` is used only to transport information about how they should be handled. Messages don't have behavior.
 For the application to be able to react to messages, we introduce another kind of actors - `Handler`.  
 A `Handler` is capable to react to a *specific* message type.  
 Putting it all together, we decompose the application into *messages* and *handlers*, that have a one-to-one relationship.  
@@ -110,7 +113,7 @@ import { eventReceiver, Receiver } from '@labs42/messaging'
 export const receiver = eventReceiver('unique-channel-name'); 
 ```
 
-Receiver doesn't necessarily need to be exported, as usualy it is not used in other places of the application. However, without creating and storing a `receiver` instance, `sender` will fail to submit messages.
+Receiver doesn't necessarily need to be exported, as usually it is not used in other places of the application. However, without creating and storing a `receiver` instance, `sender` will fail to submit messages.
 
 A `receiver` doesn't know by default what handler to use for a specific message, therefore an additional required step is needed to complete the setup for `receiver`:
 ``` javascript
@@ -147,7 +150,7 @@ config.message(MyMessage, {type: 'my-message', namespace: 'com.my-application'})
 
 It's important to note, that sender and receiver could run even in different processes, or even machines. Therefore it's not the reference of the message's constructor that is used to identify the type, but the configuration.
 
-If a message has a difinition by decorator, and at the same time being configured, then the configured part takes priority.
+If a message has a definition by decorator, and at the same time being configured, then the configured part takes priority.
 
 A default namespace can be configured within a particular configurator, using the `.namespace()` method:
 ```javascript

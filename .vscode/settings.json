@@ -6,7 +6,7 @@
   "explorer.confirmDelete": false,
   "files.exclude": {
     "**/node_modules": true,
-    "**/dist": true,
+    "**/build": true,
     "**/coverage": true
   }
 }
