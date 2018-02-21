@@ -1,0 +1,63 @@
+{
+  "name": "@labs42/messaging",
+  "version": "1.0.0",
+  "description": "A powerful framework for asynchronous messaging.",
+  "scripts": {
+    "test": "gulp test",
+    "coverage": "istanbul cover node_modules/mocha/bin/_mocha ./dist/compiled/spec/**/*.js --report html",
+    "coverage-ci": "istanbul cover node_modules/mocha/bin/_mocha ./dist/compiled/spec/**/*.js --report lcovonly",
+    "lint": "gulp tslint"
+  },
+  "keywords": [
+    "messaging",
+    "handling",
+    "message",
+    "handler",
+    "sender",
+    "receiver",
+    "cqrs"
+  ],
+  "author": {
+    "name": "Labs42",
+    "url": "https://labs42.io"
+  },
+  "contributors": [
+    {
+      "name": "Dumitru Deveatii",
+      "email": "dimadeveatii@gmail.com"
+    }
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "uuid": "3.2.1"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.1.2",
+    "@types/chai-as-promised": "^7.1.0",
+    "@types/mocha": "^2.2.48",
+    "@types/node": "^9.4.6",
+    "@types/sinon": "^4.1.3",
+    "@types/uuid": "^3.4.3",
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "chai-spies": "^1.0.0",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-istanbul": "^1.1.3",
+    "gulp-mocha": "^5.0.0",
+    "gulp-shell": "^0.6.5",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-tslint": "^8.1.3",
+    "gulp-typescript": "3.2.3",
+    "gulpclass": "^0.1.2",
+    "istanbul": "^0.4.5",
+    "mocha": "^5.0.1",
+    "mocha-lcov-reporter": "^1.3.0",
+    "sinon": "^4.3.0",
+    "sinon-chai": "^2.14.0",
+    "ts-node": "^5.0.0",
+    "tslint": "^5.9.1",
+    "tslint-config-airbnb": "^5.7.0",
+    "typescript": "^2.7.2"
+  }
+}
