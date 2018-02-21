@@ -4,7 +4,6 @@ import * as gulp from 'gulp';
 import * as del from 'del';
 import * as shell from 'gulp-shell';
 import * as mocha from 'gulp-mocha';
-import * as istanbul from 'gulp-istanbul';
 import * as ts from 'gulp-typescript';
 import * as sourcemaps from 'gulp-sourcemaps';
 const tslint = require('gulp-tslint');
