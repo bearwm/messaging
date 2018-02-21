@@ -2,6 +2,9 @@
 ========
 A powerful framework for asynchronous messaging.
 
+[![Build Status](https://travis-ci.org/labs42io/messaging.svg?branch=master)](https://travis-ci.org/labs42io/messaging)
+[![Coverage Status](https://coveralls.io/repos/github/labs42io/messaging/badge.svg)](https://coveralls.io/github/labs42io/messaging)
+
 ```javascript
 // HelloMessage.ts
 export class HelloMessage{
