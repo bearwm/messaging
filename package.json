@@ -4,8 +4,8 @@
   "description": "A powerful framework for asynchronous messaging.",
   "scripts": {
     "test": "gulp test",
-    "coverage": "istanbul cover node_modules/mocha/bin/_mocha ./dist/compiled/spec/**/*.js --recursive --report html",
-    "coverage-ci": "istanbul cover node_modules/mocha/bin/_mocha ./dist/compiled/spec/**/*.js --recursive --report lcovonly"
+    "coverage": "istanbul cover node_modules/mocha/bin/_mocha ./dist/compiled/spec/**/*.js -- --recursive --report html",
+    "coverage-ci": "istanbul cover node_modules/mocha/bin/_mocha ./dist/compiled/spec/**/*.js -- --recursive --report lcovonly"
   },
   "keywords": [
     "messaging",
