@@ -52,39 +52,41 @@ sender.submit(msg).then(result => console.log(result));
 ## Features
 * Decouple large systems into small, reusable code blocks
 * Configuration using decorators
-* Configuration using fluent api
+* Configuration using fluent API
 * Support for custom communication protocols
-* Support for custom decorators and interception
+* Support for custom message interception
 
-## Core concepts
+## Philosophy
 `@labs42/messaging` is a simple framework that helps build systems composed of small, independent, reusable and testable code blocks.  
-Imagine that any code that is executed by the application is a response to some request. Be that request an event, or a command to change something, or a request to query some data, or a transaction, etc. they all cary only information about how to react to a specific request. We call this kind of requests `Message`.  
+Imagine that any code that is executed by the application is a response to some request. Be that request a method call, or a command to change something, or a request to query some data, or a transaction, etc. they all contain only information about how to execute a specific operation. We call this kind of requests `Message`.  
 A `Message` is used only to transport information about how they should be handled. Messages don't have behavior.
-For the application to be able to react to messages, we introduce another kind of actors - `Handler`.  
-A `Handler` is capable to react to a *specific* message type.  
+For the application to be able to react to messages, we introduce another kind of actor - `Handler`.  
+A `Handler` is able to react to a *specific* message type.  
 Putting it all together, we decompose the application into *messages* and *handlers*, that have a one-to-one relationship.  
-`@labs42/messaging` framework implements the above `Message`-`Handler` pattern by using a:
+The above `Message`-`Handler` pattern is implemented by using a:
 * `Sender` that serves as a dispatcher to submit messages and wait for results;
-* `Receiver` that serves as an observer to listen to messages, handle them with a corresponding *handler* and propagate back the result (if any);
+* `Receiver` that serves as an observer to listen to messages, handle them with an appropriate *handler* and propagate back the result (if any);
 
-The `Sender` and `Receiver` communication rely on abstractions, so that custom protocols like `HTTP`, `IPC` etc. can be implemented.
+The `Sender` and `Receiver` communication rely on abstractions, so that custom protocols like `HTTP`, `IPC` etc. can be configured.
 
-In order to increase the code reusability and keep the *Single Responsibility Principle*, the framework allows you to define cross-cutting concerns for *messages* and *handlers* by means of `ECMAScript` decorators. For example you could define a timeout for a message execution:
+The framework allows to intercept the communication process between a sender and a receiver. An interceptor provides full control on how a message is dispatched and received.
+Interceptors can be easily attached/detached from messages and handlers using decorators.  
+For example you could define a timeout for a message execution:
 ```javascript
 @Timeout(1000)
 class MyMessage { ... }
 ```
 
-or just mock a result for a specific message, while the handler is not yet implemented.
+or just mock a result for a specific message, while the handler hans't been implemented yet.
 
 ```javascript
 @Return(new User('John', 'Doe'))
 class MyHandler {
   handler(msg: GetUserMessage){ throw new Error('Not implemented.') }
 }
-
-See `Interception` below for more information.
 ```
+See `Interception` below for more information about built-in interceptors and implementing a custom interceptor.
+
 
 ## Setup
 To submit messages and get appropriate results a `Sender` instance is created and exported into the application.
@@ -198,4 +200,4 @@ $ ts-node examples/decorators-mock-results
 ## License
 [MIT](LICENSE)
 
-Copyright © 2018 Labs42
+Copyright © 2018 [Labs42](https://labs42.io/)
